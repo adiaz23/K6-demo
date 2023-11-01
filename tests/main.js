@@ -3,9 +3,14 @@ import { group } from 'k6';
 
 const baseURL = "https://test-api.k6.io/user/register/";
 export const options = {
-    vus: 10,
-    iterations: 10,
-    duration:"10s"
+    scenarios: {
+      contacts: {
+        executor: 'per-vu-iterations',
+        vus: 10,
+        iterations: 1,
+        maxDuration:"10s"
+      },
+    },
   };
 
 export default function(){
