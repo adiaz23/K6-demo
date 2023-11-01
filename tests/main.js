@@ -3,8 +3,9 @@ import { group } from 'k6';
 
 const baseURL = "https://test-api.k6.io/user/register/";
 export const options = {
-    vus: 1,
-    duration: '2s',
+    vus: 10,
+    iterations: 10,
+    duration:"10s"
   };
 
 export default function(){

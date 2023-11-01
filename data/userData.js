@@ -1,6 +1,6 @@
 import Faker from "https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"
 
-let username = {
+let userData = {
     username: Faker.internet.userName(),
     firstname: Faker.name.firstName(),
     lastname: Faker.name.lastName(),
@@ -8,4 +8,4 @@ let username = {
     password: Faker.password
 }
   
-export default username;
+export default userData;

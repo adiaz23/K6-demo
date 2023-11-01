@@ -1,25 +1,22 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
-import username from '../data/userData.js';
+import userData from '../data/userData.js';
 
-export function registerUser(url){   
+export function registerUser(url){
         let fields =  {
-            username: username.username, 
-            first_name: username.firstname, 
-            lastname:username.lastname, 
-            email:username.email, 
-            password: username.password
+            username: userData.username, 
+            first_name: userData.firstname, 
+            lastname: userData.lastname, 
+            email: userData.email, 
+            password: userData.password
         }
-
         let response = http.post(url, fields);
-        console.log(username);
         sleep(2);
         check(response, {
             'Response code was 201': response => response.status === 201,
             'Status test is "201 Created"': response => response.status_text === "201 Created",
-            'Username saved correctly': response => (response.body).includes(username.username)
+            'Username saved correctly': response => (response.body).includes(userData.username)
         } );
-        console.log(response);
 }
 
 export function registerCreatedUser(url){
