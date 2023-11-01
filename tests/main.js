@@ -1,3 +1,4 @@
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import { registerUser,registerCreatedUser} from "../modules/registerUser.js";
 import { group } from 'k6';
 
@@ -22,3 +23,10 @@ export default function(){
     registerCreatedUser(baseURL);
   });
 }
+
+export function handleSummary(data) {
+  let time = Date.now();
+  return {
+    [`reports/result_${time}.html`]: htmlReport(data),
+  }
+};
