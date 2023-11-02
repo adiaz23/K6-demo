@@ -1,5 +1,7 @@
 # K6 Demo
 
+This demo is a load test to the [k6 register endpoint](https://test-api.k6.io/user/register/). It consists in two tests, one to register multiple users using valid credentials and the other to register multiple users using credential already used. 
+
 ## Setting up
 
 ### Dependencies
