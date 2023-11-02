@@ -4,10 +4,13 @@ import { group } from 'k6';
 
 const baseURL = "https://test-api.k6.io/user/register/";
 export const options = {
+    thresholds: {
+      checks: ['rate>0.75']
+    },
     scenarios: {
       contacts: {
         executor: 'per-vu-iterations',
-        vus: 10,
+        vus: 50,
         iterations: 1,
         maxDuration:"10s"
       },
