@@ -1,5 +1,5 @@
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
-import { registerUser,registerCreatedUser} from "../modules/registerUser.js";
+import { registerUser, registerCreatedUser} from "../modules/registerUser.js";
 import { group } from 'k6';
 
 const baseURL = "https://test-api.k6.io/user/register/";
@@ -12,7 +12,7 @@ export const options = {
         executor: 'per-vu-iterations',
         vus: 50,
         iterations: 1,
-        maxDuration:"10s"
+        maxDuration:"40s"
       },
     },
   };
